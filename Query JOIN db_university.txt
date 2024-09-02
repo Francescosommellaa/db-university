@@ -1,0 +1,99 @@
+Query JOIN db_university
+
+1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+
+Query SQL:
+
+SELECT students.*
+FROM students
+JOIN degrees ON students.degree_id = degrees.id
+WHERE degrees.name = 'Corso di Laurea in Economia';
+
+
+Risultato: Mostro le righe 0 - 24 (68 del totale, La query ha impiegato 0,0006 secondi.)
+
+___
+
+
+2. Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di
+Neuroscienze
+
+Query SQL:
+
+SELECT degrees.*
+FROM degrees
+JOIN departments ON degrees.department_id = departments.id
+WHERE departments.name = 'Dipartimento di Neuroscienze'
+AND degrees.level = 'magistrale';
+
+
+Risultato: Mostro le righe 0 - 0 (1 del totale, La query ha impiegato 0,0010 secondi.)
+
+___
+
+
+3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
+
+Query SQL:
+
+SELECT courses.*
+FROM courses
+JOIN course_teacher ON courses.id = course_teacher.course_id
+WHERE course_teacher.teacher_id = 44;
+
+
+Risultato: Mostro le righe 0 - 10 (11 del totale, La query ha impiegato 0,0091 secondi.)
+
+___
+
+
+4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui
+sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e
+nome
+
+Query SQL:
+
+SELECT students.*, degrees.name AS nome_grado, departments.name AS nome_dipartimento
+FROM students
+JOIN degrees ON students.degree_id = degrees.id
+JOIN departments ON degrees.department_id = departments.id
+ORDER BY students.surname, students.name;
+
+
+Risultato: Mostro le righe 0 - 24 (5000 del totale, La query ha impiegato 0,0191 secondi.) [surname: AMATO... - AMATO...] [name: BRIGITTA... - MANFREDI...]
+
+___
+
+
+5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+
+Query SQL:
+
+
+
+Risultato:
+
+___
+
+
+6. Selezionare tutti i docenti che insegnano nel Dipartimento di
+Matematica (54)
+
+Query SQL:
+
+
+
+Risultato:
+
+___
+
+
+7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
+per ogni esame, stampando anche il voto massimo. Successivamente,
+filtrare i tentativi con voto minimo 18.
+
+Query SQL:
+
+
+
+Risultato:
