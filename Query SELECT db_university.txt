@@ -1,0 +1,122 @@
+Query SELECT db_university
+
+1. Selezionare tutti gli studenti nati nel 1990 (160)
+
+Query SQL:
+
+SELECT * 
+FROM `students`
+WHERE YEAR(date_of_birth) = 1990;
+
+risultato: Mostro le righe 0 - 24 (160 del totale, La query ha impiegato 0,0074 secondi.)
+
+
+____
+
+
+2. Selezionare tutti i corsi che valgono più di 10 crediti (479)
+
+Query SQL:
+
+SELECT * 
+FROM `courses`
+WHERE cfu > 10;
+
+risultato:  Mostro le righe 0 - 24 (479 del totale, La query ha impiegato 0,0006 secondi.)
+
+
+____
+
+
+3. Selezionare tutti gli studenti che hanno più di 30 anni
+
+Query SQL:
+
+SELECT * 
+FROM `students`
+WHERE YEAR(CURDATE()) - YEAR(date_of_birth) > 30;
+
+spiegazione funzione CURDATE: restituisce la data corrente al sistema nel formato anno mese giorno.
+
+risultato:  Mostro le righe 0 - 24 (3646 del totale, La query ha impiegato 0,0007 secondi.)
+
+
+____
+
+
+4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
+laurea (286)
+
+Query SQL:
+
+SELECT * 
+FROM `courses`
+WHERE period = 'I semestre'
+AND year = 1;
+
+risultato:   Mostro le righe 0 - 24 (286 del totale, La query ha impiegato 0,0003 secondi.)
+
+
+____
+
+
+5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del
+20/06/2020 (21)
+
+Query SQL:
+
+SELECT * 
+FROM `exams`
+WHERE date = '2020-06-20'
+AND hour >= '14:00:00';
+
+risultato:   Mostro le righe 0 - 20 (21 del totale, La query ha impiegato 0,0022 secondi.)
+
+
+____
+
+
+6. Selezionare tutti i corsi di laurea magistrale (38)
+
+Query SQL:
+
+SELECT * 
+FROM `degrees`
+WHERE LEVEL = 'MAGISTRALE';
+
+risultato:   Mostro le righe 0 - 24 (38 del totale, La query ha impiegato 0,0007 secondi.)
+
+
+____
+
+
+7.  Da quanti dipartimenti è composta l'università? (12)
+
+Query SQL:
+
+SELECT * 
+FROM `departments`;
+
+risultato:   Mostro le righe 0 - 11 (12 del totale, La query ha impiegato 0,0006 secondi.)
+
+
+____
+
+
+8.  Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+
+Query SQL:
+
+SELECT * 
+FROM `teachers`
+WHERE phone IS NULL;
+
+risultato:   Mostro le righe 0 - 24 (50 del totale, La query ha impiegato 0,0002 secondi.)
+
+
+
+
+
+
+
+
